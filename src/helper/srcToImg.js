@@ -8,7 +8,7 @@ const writeFile = promisify(fs.writeFile);
 
 module.exports = async (src,dir) =>{
 	if(/\.(jpg|png|gif)$/.test(src)){
-		await urlToImg(src,dir);
+		await urlToImg(src,dir);    
 	}else{
 		await base64ToImg(src,dir);
 	}
