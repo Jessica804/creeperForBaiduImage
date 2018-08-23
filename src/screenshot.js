@@ -13,7 +13,7 @@ const srcToImg = require('./helper/srcToImg');
 	});
 	console.log('reset viewpoint');
 	await page.focus('#kw');
-	await page.keyboard.sendCharacter('单身狗');
+	await page.keyboard.sendCharacter('抢票回家');
 	await page.click('.s_search');
        
 	console.log('go to searchlist');
@@ -22,7 +22,7 @@ const srcToImg = require('./helper/srcToImg');
 		const srcs = await page.evaluate(() => {
 			/*eslint no-undef: "off"*/
 			const images = document.querySelectorAll('img.main_img');
-			return Array.prototype.map.call(images, img => img.src);
+			return Array.prototype.map.call(images, img => img.src);  // 把NodeList转化成Array
 		});
 		srcs.forEach(src => {
 			srcToImg(src,config.imgUrl);

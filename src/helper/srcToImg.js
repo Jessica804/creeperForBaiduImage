@@ -17,11 +17,11 @@ module.exports = async (src,dir) =>{
 //url => img
 const urlToImg = async (url,dir) =>{
 	const mod = /^https:/.test(url)?https:http;
-	const ext = path.extname(url);
+	const ext = path.extname(url); //返回path的扩展名，即从path的最后一部分的最后一个.(句号)字符到字符串结束
 	const file = path.join(dir,`${Date.now()}${ext}`);
    
 	mod.get(url, res => {
-		res.pipe(fs.createWriteStream(file))
+		res.pipe(fs.createWriteStream(file))  //返回一个可写流
 			.on('finish',() =>{
 				console.log(file);
 			});
