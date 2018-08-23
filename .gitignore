@@ -1,0 +1,10 @@
+logs
+*.log
+npm-debug.log
+node_modules/
+*.swp
+.idea/
+.vscode/
+.DS_Store
+build/
+images/
