@@ -22,6 +22,8 @@ const srcToImg = require('./helper/srcToImg');
 		const srcs = await page.evaluate(() => {
 			/*eslint no-undef: "off"*/
 			const images = document.querySelectorAll('img.main_img');
+			//调用call的对象必须是个函数function，call的第一个参数是function改变上下文后指向的对象，如果不传，默认为全局对象
+			//
 			return Array.prototype.map.call(images, img => img.src);  // 把NodeList转化成Array
 		});
 		srcs.forEach(src => {

@@ -21,8 +21,8 @@ const urlToImg = async (url,dir) =>{
 	const file = path.join(dir,`${Date.now()}${ext}`);
    
 	mod.get(url, res => {
-		res.pipe(fs.createWriteStream(file))  //返回一个可写流
-			.on('finish',() =>{
+		res.pipe(fs.createWriteStream(file))  //createWriteStream 返回一个可写流
+			.on('finish',() =>{               //
 				console.log(file);
 			});
 	});
